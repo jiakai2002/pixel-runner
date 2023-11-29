@@ -75,8 +75,11 @@ sky_surface = pygame.image.load("graphics/Sky.png").convert()
 ground_surface = pygame.image.load("graphics/Ground.png").convert()
 
 jump_sound = pygame.mixer.Sound("audio/jump.mp3")
+jump_sound.set_volume(0.5)
 game_over_sound = pygame.mixer.Sound("audio/game_over.mp3")
+game_over_sound.set_volume(0.5)
 bg_music = pygame.mixer.Sound("audio/music.wav")
+bg_music.play(loops=-1)
 
 # Obstacles
 obstacle_rect_list = []
@@ -130,7 +133,6 @@ pygame.time.set_timer(snail_animation_timer, 500)
 fly_animation_timer = pygame.USEREVENT + 3
 pygame.time.set_timer(fly_animation_timer, 200)
 
-bg_music.play()
 while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
